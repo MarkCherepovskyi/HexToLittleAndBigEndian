@@ -18,16 +18,17 @@ var (
 		"7": 7,
 		"8": 8,
 		"9": 9,
-		"a": 10,
-		"b": 11,
-		"c": 12,
-		"d": 13,
-		"e": 14,
-		"f": 15,
+		"A": 10,
+		"B": 11,
+		"C": 12,
+		"D": 13,
+		"E": 14,
+		"F": 15,
 	}
 )
 
 func ConvertHexToDec(hexNum string) *big.Int {
+	hexNum = hexNum[2:]
 	bufDecimal := new(big.Int)
 	for index, _ := range hexNum {
 		data := fmt.Sprintf("%c", hexNum[index])
@@ -59,13 +60,14 @@ func SearchingValue(hexNum string) string {
 
 func ConvertToHex(num *big.Int, size int) string {
 
-	res := fmt.Sprintf("%x", num)
-	log.Println(res)
+	bufferRes := fmt.Sprintf("%x", num)
+	log.Println(bufferRes)
 
-	if len(res) != size*2 {
-		for i := len(res); i < size*2; i++ {
-			res += "0"
+	if len(bufferRes) != size*2 {
+		for i := len(bufferRes); i < size*2; i++ {
+			bufferRes += "0"
 		}
 	}
+	res := "0x" + bufferRes
 	return res
 }
