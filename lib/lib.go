@@ -2,7 +2,6 @@ package lib
 
 import (
 	"fmt"
-	"log"
 	"math/big"
 )
 
@@ -18,12 +17,12 @@ var (
 		"7": 7,
 		"8": 8,
 		"9": 9,
-		"A": 10,
-		"B": 11,
-		"C": 12,
-		"D": 13,
-		"E": 14,
-		"F": 15,
+		"a": 10,
+		"b": 11,
+		"c": 12,
+		"d": 13,
+		"e": 14,
+		"f": 15,
 	}
 )
 
@@ -61,7 +60,6 @@ func SearchingValue(hexNum string) string {
 func ConvertToHex(num *big.Int, size int) string {
 
 	bufferRes := fmt.Sprintf("%x", num)
-	log.Println(bufferRes)
 
 	if len(bufferRes) != size*2 {
 		for i := len(bufferRes); i < size*2; i++ {
